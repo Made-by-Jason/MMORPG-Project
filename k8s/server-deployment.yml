@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: arcademmo-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: arcademmo-server
+  template:
+    metadata:
+      labels:
+        app: arcademmo-server
+    spec:
+      containers:
+      - name: server
+        image: yourrepo/arcademmo-server:latest
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: DATABASE_URL
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              name: redis-secret
+              key: REDIS_URL
+        ports:
+        - containerPort: 4000
