@@ -1,0 +1,13 @@
+{
+  "sprites": {
+    "player": "/assets/sprites/player.png",
+    "npc_orc": "/assets/sprites/npc_orc.png"
+  },
+  "tilesets": {
+    "default": "/assets/tiles/tileset.png"
+  },
+  "icons": {
+    "health": "/assets/icons/health.png",
+    "mana": "/assets/icons/mana.png"
+  }
+}
